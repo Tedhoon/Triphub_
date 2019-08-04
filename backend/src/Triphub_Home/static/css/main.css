@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css?family=Rubik:500&display=swap');
+/* font-family: 'Rubik', sans-serif; */
+
+
+.main-create{
+    margin: 150px;
+    width: 500px;
+}
+
+#back_img{
+    font-size: 50px;
+    font-family: 'Rubik', sans-serif;
+    color: rgb(197, 197, 197);
+    
+}
+
+#create-btn{
+    margin-top: 50px;
+    display: inline-block;
+    border: 2px rgb(75, 49, 255) solid;
+    color: rgb(75, 49, 255);
+    text-decoration: none;
+    padding: 10px 20px;
+    font-size: 25px;
+}
+#create-btn>img{
+    margin-top: 5px;
+    margin-left: 40px;
+}
