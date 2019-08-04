@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load staticfiles %}  
+{% block contents %}
+ 
+    <!-- css -->
+    <link rel="stylesheet" href="{% static 'css/loading.css'%}">
+
+    <!-- body -->
+    <div class='loading'>
+        <div class="loading-head">
+            <div class="loading-img">
+                <div class="loading-imgf">
+                    <div class="loading-txt">
+                        <p>모두가<br/>선택을 완료할 때까지<br/>기다려 주세요.</p>
+                    </div>     
+                </div>
+            </div>
+                            
+        </div>
+        <div class="loading-foot">
+            <div class="loading-list">
+                <a href="{% url 'Room_loading'%}">MY LIST 수정</a>
+            </div>
+            <div class="loading-home">
+                <a href="{% url 'main'%}">HOME 으로 이동</a>
+            </div>
+        </div>
+    </div>
+{% endblock contents %}

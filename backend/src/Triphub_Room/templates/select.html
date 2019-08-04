@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block contents %}
+    <!-- css -->
+    <!-- <link rel="stylesheet" href="{% static 'css/create.css' %}"> -->
+
+    <!-- body -->
+    <h1>Select Room</h1>
+    <a href="{% url 'Room_loading'%}">Room_loading</a>
+{% endblock contents %}

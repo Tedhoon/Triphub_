@@ -1,0 +1,28 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="ko_kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="{% static 'css/base.css'%}">
+
+    <title>Triphub</title>
+</head>
+<body>
+    <div class="Nav">
+        <div class="Nav-logo">
+            <h1>Triphub</h1>
+        </div>
+        <div class="Nav-prof">
+            <a href="{% url 'main'%}">HOME</a>
+        </div>
+        <div class="Nav-login">
+            <a href="{% url 'logout' %}">LOGOUT</a>
+        </div>
+    </div>
+    {% block contents %}
+    {% endblock %}
+</body>
+</html>
