@@ -4,8 +4,30 @@
 {% block contents %}
     <!-- css -->
     <link rel="stylesheet" href="{% static 'css/create.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Mukta:300,400,500,600,700,800&display=swap" rel="stylesheet">
+
 
     <!-- body -->
-    <h1>Create Room</h1>
+    <form action="{% url 'Room_create' %}" method="GET">
+    <div>
+        <div id="title">CREATE YOUR ROOM</div>
+        <div id="roomname_parent">
+            <input id="roomname" type="search" placeholder="방 이름을 입력해 주세요">
+        </div>
+        <div id="roomname_underline"></div>
+        <section>
+            <div id="friend_parent">
+                <input id="friend" type="search" placeholder="초대할 친구를 입력해 주세요">
+                <img src="{% static 'img/invite_btn.png' %}">
+            </div>
+            <div id="friend_underline"></div>
+            <div id="friend_list">friend list
+                
+            </div>
+            <input id="clearbtn" onclick ='del()' class = "delete" type="button" value="모두 삭제">
+        </section>
+    </div>
+    </form>
+
     <a href="{% url 'Room_select'%}">Room_select</a>
 {% endblock contents %}
