@@ -12,21 +12,38 @@
     <div>
         <div id="title">CREATE YOUR ROOM</div>
         <div id="roomname_parent">
-            <input id="roomname" type="search" placeholder="방 이름을 입력해 주세요">
+            <input id="roomname" name="roomname" type="search" onfocus="this.value=''" placeholder="방 이름을 입력해 주세요">
         </div>
         <div id="roomname_underline"></div>
         <section>
             <div id="friend_parent">
-                <input id="friend" type="search" placeholder="초대할 친구를 입력해 주세요">
-                <img src="{% static 'img/invite_btn.png' %}">
+                <input id="friend" type="search" onfocus="this.value=''" placeholder="초대할 친구를 입력해 주세요">
+                <span id="add_btn"  onclick ='input_Text()'>
+                    <img src="{% static 'img/invite_btn.png' %}">
+                </span>
             </div>
             <div id="friend_underline"></div>
-            <div id="friend_list">
-                friend list
-                
-            </div>
+            <input id="friend_list">
+     
+            <input id="friend_list2">
+
             <input id="clearbtn" onclick ='del()' class = "delete" type="button" value="CLEAR">
         </section>
+        <input id="createbtn" type="submit" value="CREATE">
     </div>
     </form>
+    <!-- 자바스크립트 -->
+    <script>
+        function input_Text(){
+            var x = document.getElementById("friend").value;    //친구 이름 받아오기
+            var send = document.getElementById("friend_list2").value;
+                console.log(x);
+            document.getElementById("friend_list").value  +=  (' '+x);
+            document.getElementById("friend_list2").value  +=  (x + '&');
+        }
+        function del(){
+            document.getElementById("friend_list").value = '';
+            document.getElementById("friend_list2").value = '';
+        }
+        </script>
 {% endblock contents %}
