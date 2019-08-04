@@ -120,3 +120,7 @@ src
 <ul>
     <li>chat/ : chat 페이지</li>
 </ul>
+
+
+
+## pip freeze > requirements.txt
