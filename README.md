@@ -2,7 +2,7 @@
 
 ## > 버전
 <p><strong>Triphub 0(대규모 변화) . 0(마이너한 변화) . 0(자잘한 버그)</strong></p>
-<p><strong>Triphub 1.2.4 (2019.08.05)</strong></p>
+<p><strong>Triphub 1.2.5 (2019.08.05)</strong></p>
 
 <hr>
 
