@@ -1,5 +1,11 @@
 # Triphub_
 
+## > 버전
+<p><strong>Triphub 0(대규모 변화) . 0(마이너한 변화) . 0(자잘한 버그)</strong></p>
+<p><strong>Triphub 1.2.4 (2019.08.05)</strong></p>
+
+<hr>
+
 ### 설치된 package install 하는 방법!
 backend 안에서 <strong>pip install -r requirements.txt</strong> 을 입력
 
@@ -121,6 +127,6 @@ src
     <li>chat/ : chat 페이지</li>
 </ul>
 
-
+<hr>
 
 ## pip freeze > requirements.txt
