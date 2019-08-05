@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 
 # 방과 관련된 모델들
 class RoomInput(models.Model):
+    objects = models.Manager()  #빨간줄 안뜨도록하기위해서
     date = models.DateTimeField(auto_now=False, auto_now_add=True)
     # 날짜
     roomname = models.CharField(max_length=10)
@@ -14,6 +15,7 @@ class RoomInput(models.Model):
         return self.roomname
 
 class myRoom(models.Model):
+    objects = models.Manager()  #빨간줄 안뜨도록하기위해서
     room_id = models.CharField(max_length=10)
     # 방 id
 
@@ -26,6 +28,7 @@ class myRoom(models.Model):
 # 멤버와 관련된 모델들
 
 class memberList(models.Model):
+    objects = models.Manager()  #빨간줄 안뜨도록하기위해서
     user_id = models.CharField(max_length=20)
     # 유저 아이디
     room_id = models.CharField(max_length=10)

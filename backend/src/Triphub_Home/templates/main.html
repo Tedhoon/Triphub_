@@ -10,5 +10,23 @@
         <div id="back_img">When it doubt,<br>TRAVEL</div>
         <a id="create-btn"href="{% url 'ToRoom_create' %}">새로운 여행 그룹 <img src="{% static 'img/invite_btn.png' %}" ></a>
     </div>
+    <section>
+        {% for info in infos %}
+               <a href="#">
+                  <div id="card">
+                    <div id="line"></div>
+                    <div class="title">
+                        {{info.roomname }}
+                    </div>
+                    <div class="contents">
+                        <span class="mainmember"><span>방장 &nbsp;</span>{{info.mainmember}}</span>
+                        <span class="date">{{info.date}}</span>
+                        <!-- <p></p> -->
+                    </div>
+                  </div>
+                </a>
+                {% endfor %}
+            </section>
+    
 {% endblock contents %}
     

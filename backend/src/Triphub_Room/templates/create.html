@@ -23,7 +23,8 @@
                 </span>
             </div>
             <div id="friend_underline"></div>
-            <input id="friend_list">
+            <div id="friend_list">
+            </div>
      
             <input id="friend_list2">
 
@@ -37,8 +38,12 @@
         function input_Text(){
             var x = document.getElementById("friend").value;    //친구 이름 받아오기
             var send = document.getElementById("friend_list2").value;
+            var obj = document.createElement('div');
+                obj.id = "::img";
+                obj.style.cssText = 'position:absolute; top:10px; width:80px; height:200px; border-radius:100px; border:1px solid #ddd;';
+
                 console.log(x);
-            document.getElementById("friend_list").value  +=  (' '+x);
+            document.getElementById("friend_list").appendChild(obj.appendChild(x));
             document.getElementById("friend_list2").value  +=  (x + '&');
         }
         function del(){
