@@ -6,11 +6,14 @@
 
 <hr>
 
-### 설치된 package install 하는 방법!
+## > 설치된 package install 하는 방법!
 backend 안에서 <strong>pip install -r requirements.txt</strong> 을 입력
 
 
-##### < 20190805 기준 : Tree 구조 >
+<hr>
+
+## < 20190805 기준 : Tree 구조 >
+
 ```bash
 src
 ├── Triphub
