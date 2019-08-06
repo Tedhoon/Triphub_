@@ -5,6 +5,6 @@ from . import views
 
 
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('', views.url_room_create, name='url_room_create'),
     path('<room_name>/', views.room, name ="room"),
 ]

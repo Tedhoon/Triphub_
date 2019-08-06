@@ -1,0 +1,32 @@
+#createbtn{
+    width:20%;
+    position: fixed;
+    right:0;
+    bottom:0;
+    color:white;    
+    font-weight: 200;
+    font-size:1.5em;
+    background: rgb(90,90,249);
+    border-radius: 30px;
+    height:40px;
+    margin-right:1%;
+    margin-bottom   :1%;
+    height:40px;
+    bottom:fixed;
+}
+
+#title{
+    font-family: 'Mukta', sans-serif;
+    font-weight: 800;
+    width:100%;
+    margin-top:3%;
+    color:#E0E0E0;
+    text-align: center;
+    font-size: 3.5em;
+}
+
+#roomname_underline{
+    width:22%;
+    margin-left:39%;
+    border-bottom: solid rgba(90,90,249,0.6) 1.7px;
+}

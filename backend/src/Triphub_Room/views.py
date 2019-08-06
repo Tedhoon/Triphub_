@@ -36,7 +36,7 @@ def Room_create(request):
     # memberList.save()
     # rows.update(room_id += ('&' + room.id))
 
-    return redirect('room/select')
+    return redirect('url_room_create')
 
 @login_required
 def Room_select(request, room_id):
