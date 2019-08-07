@@ -4,12 +4,22 @@
 {% block contents %}
     <!-- css -->
     <link rel="stylesheet" href="{% static 'css/room.css' %}">
-
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=ipb7uyokq0"></script>
 
     <!-- body -->
     <section>
-        <div id="map">map</div>
+        <div id="map"></div>
     </section>
+    <!-- 월 6,000,000건 까지만 무료이므로 개발시에는 ncpClientId의 값을 따로 빼서 주석 처리후 개발할것...  -->
+
+    <script>
+        var mapOptions = {
+            center: new naver.maps.LatLng(37.3595704, 127.105399),
+            zoom: 10
+        };
+        
+        var map = new naver.maps.Map('map', mapOptions);
+    </script>
     
     
     
