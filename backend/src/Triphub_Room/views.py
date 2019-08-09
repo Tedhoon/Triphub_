@@ -23,7 +23,10 @@ def Room_create(request):
 
     myroom = myRoom()
     myroom.room_id = room.id
+    myroom.attraction = ''
+    myroom.city = ''
     myroom.name = room.mainmember
+    myroom.ispass = '0'
     myroom.save()
 
     qs = memberList.objects.all()
