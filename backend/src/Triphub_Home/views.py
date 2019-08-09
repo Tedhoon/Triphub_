@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from Triphub_Room.models import RoomInput, memberList
 
@@ -23,4 +23,8 @@ def main(request):
             info.append(row)
 
     return render(request,'main.html', {'infos':info})
+
+def private_room(request, info_id):
+    room = get_object_or_404(RoomInput, pk = info_id)
+    return render(request,'select.html')
 

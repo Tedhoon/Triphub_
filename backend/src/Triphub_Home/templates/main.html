@@ -12,7 +12,7 @@
     </div>
     <section>
         {% for info in infos %}
-               <a href="#">
+               <a href="{%url 'private_room' info.id%}">
                   <div id="card">
                     <div id="line"></div>
                     <div class="title">
