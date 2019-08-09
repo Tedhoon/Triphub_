@@ -42,12 +42,6 @@ def Room_create(request):
     return render(request, 'select.html',{'room':myroom})
 
 @login_required
-def Room_detail(request, room_id):
-    room = get_object_or_404(myRoom, pk = room_id)
-    return render(request,'select.html', {'room':room})
-
-
-@login_required
 def Room_select(request, room_id):
     room = get_object_or_404(RoomInput, pk = room_id)
     return render(request,'select.html')
