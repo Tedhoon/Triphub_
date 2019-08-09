@@ -39,7 +39,7 @@ def Room_create(request):
     # memberList.save()
     # rows.update(room_id += ('&' + room.id))
 
-    return redirect('/room/select/'+ str(myroom.room_id))
+    return render(request, 'select.html',{'room':myroom})
 
 @login_required
 def Room_detail(request, room_id):

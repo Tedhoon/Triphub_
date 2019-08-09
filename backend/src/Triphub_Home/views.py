@@ -22,19 +22,16 @@ def main(request):
         for row in rows:
             info.append(row)
 
-<<<<<<< HEAD
     userName = request.user.username+'님 안녕하세요'
-    return render(request,'main.html', {'infos':info, 'username':userName})
+#     return render(request,'main.html', {'infos':info, 'username':userName})
 
-def private_room(request, info_id): 
-    room_id = get_object_or_404(RoomInput, pk = info_id)
-    room = RoomInput()  #roominput테이블 정보를 대입
+# def private_room(request, info_id): 
+#     room_id = get_object_or_404(RoomInput, pk = info_id)
+#     room = RoomInput()  #roominput테이블 정보를 대입
     
-    qs = RoomInput.objects.all()    #방, 방이름, 방장 정보 가져오기
-    row = qs.filter(id__icontains=info_id) #url의 pk값이랑 같은 것을 찾는다
+#     qs = RoomInput.objects.all()    #방, 방이름, 방장 정보 가져오기
+#     row = qs.filter(id__icontains=info_id) #url의 pk값이랑 같은 것을 찾는다
 
-    return render(request,'select.html',{'roomname':row[0].roomname})
+#     return render(request,'select.html',{'roomname':row[0].roomname})
 
-=======
     return render(request,'main.html', {'infos':info})
->>>>>>> cd4e515a8310cbb05cb0a6347b721153ffc16b36
