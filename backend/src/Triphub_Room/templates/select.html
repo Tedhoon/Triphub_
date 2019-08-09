@@ -8,5 +8,8 @@
     <!-- body -->
     <h1>Select Room</h1>
     <h1>{{roomname}}</h1>
+    {{ room.room_id }}
+    {{ room.name }}
+    
     <a href="{% url 'Room_loading'%}">Room_loading</a>
 {% endblock contents %}

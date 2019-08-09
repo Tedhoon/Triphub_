@@ -22,6 +22,7 @@ def main(request):
         for row in rows:
             info.append(row)
 
+<<<<<<< HEAD
     userName = request.user.username+'님 안녕하세요'
     return render(request,'main.html', {'infos':info, 'username':userName})
 
@@ -34,3 +35,6 @@ def private_room(request, info_id):
 
     return render(request,'select.html',{'roomname':row[0].roomname})
 
+=======
+    return render(request,'main.html', {'infos':info})
+>>>>>>> cd4e515a8310cbb05cb0a6347b721153ffc16b36

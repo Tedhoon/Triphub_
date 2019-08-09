@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
 from django.contrib.auth.models import User
@@ -39,13 +39,24 @@ def Room_create(request):
     # memberList.save()
     # rows.update(room_id += ('&' + room.id))
 
-    return redirect('url_room_create')
+    return redirect('/room/select/'+ str(myroom.room_id))
+
+@login_required
+def Room_detail(request, room_id):
+    room = get_object_or_404(myRoom, pk = room_id)
+    return render(request,'select.html', {'room':room})
+
 
 @login_required
 def Room_select(request, room_id):
+    room = get_object_or_404(RoomInput, pk = room_id)
     return render(request,'select.html')
 
 @login_required
 def Room_loading(request):
     return render(request,'loading.html')
+
+    
+    
+
     
