@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
+from django.contrib.sites.shortcuts import get_current_site
 from django.contrib.auth.models import User
 from .models import RoomInput,myRoom,memberList  # 데이터베이스 틀 임포트
 import pymysql.cursors
@@ -44,11 +45,15 @@ def Room_create(request):
 @login_required
 def Room_select(request, room_id):
     room = get_object_or_404(RoomInput, pk = room_id)
+    qs = memberList.objects.all()
+    
     return render(request,'select.html')
 
 @login_required
 def Room_loading(request):
-    return render(request,'loading.html')
+    url = request.path
+    path = url.split('/')
+    return render(request,'loading.html',{'id':path})
 
     
     
