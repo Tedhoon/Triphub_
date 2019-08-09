@@ -31,7 +31,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    'channels',
+    # 'channels',
     
     'django.contrib.admin',
     'django.contrib.auth',
@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'Triphub_Accounts',
-    'Triphub_Chat',
     'Triphub_Home',
     'Triphub_Room',
     'Triphub_Place',
@@ -50,17 +49,17 @@ INSTALLED_APPS = [
     'corsheaders',
 ]
 
-#channels
-ASGI_APPLICATION = 'Triphub.routing.application'
+# #channels
+# ASGI_APPLICATION = 'Triphub.routing.application'
 #붙일 때 프로젝트 네임 바꿔주기
-CHANNEL_LAYERS = {
-    'default': {
-        'BACKEND': 'channels_redis.core.RedisChannelLayer',
-        'CONFIG': {
-            "hosts": [('127.0.0.1', 6379)],
-        },
-    },
-}
+# CHANNEL_LAYERS = {
+#     'default': {
+#         'BACKEND': 'channels_redis.core.RedisChannelLayer',
+#         'CONFIG': {
+#             "hosts": [('127.0.0.1', 6379)],
+#         },
+#     },
+# }
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
