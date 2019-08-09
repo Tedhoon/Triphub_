@@ -23,8 +23,3 @@ def main(request):
             info.append(row)
 
     return render(request,'main.html', {'infos':info})
-
-def private_room(request, info_id):
-    room = get_object_or_404(RoomInput, pk = info_id)
-    return render(request,'select.html')
-

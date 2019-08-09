@@ -13,7 +13,7 @@ from . import views
 urlpatterns = [
     path('',views.ToRoom_create, name='ToRoom_create'),
     path('create/',views.Room_create, name='Room_create'),
-    path('select/',views.Room_select, name='Room_select'),
+    path('select/<int:room_id>',views.Room_detail, name='Room_detail'),
     path('loading/', views.Room_loading, name='Room_loading'),
 
     # 패스를 추가해줬다고 무조건 html을 띄워야 하는 건 아님.
