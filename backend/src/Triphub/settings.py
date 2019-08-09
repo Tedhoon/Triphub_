@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'Triphub_Chat',
     'Triphub_Home',
     'Triphub_Room',
+    'Triphub_Place',
 
     'rest_framework',
     'corsheaders',
