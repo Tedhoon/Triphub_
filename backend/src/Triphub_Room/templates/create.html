@@ -27,7 +27,6 @@
             </div>
      
             <input id="friend_list2">
-
             <input id="clearbtn" onclick ='del()' class = "delete" type="button" value="CLEAR">
         </section>
         <input id="createbtn" type="submit" value="NEXT">
@@ -37,14 +36,18 @@
     <script>
         function input_Text(){
             var x = document.getElementById("friend").value;    //친구 이름 받아오기
+            var len = x.length;
+            console.log(len);
             var send = document.getElementById("friend_list2").value;
-            var obj = document.createElement('div');
-                obj.id = "::img";
-                obj.style.cssText = 'position:absolute; top:10px; width:80px; height:200px; border-radius:100px; border:1px solid #ddd;';
+            var obj = document.getElementById("friend_list");
+            if(len>0){
+                obj.innerHTML += "<p style='width:"
+                + len*15 +"px; height:20px; display:inline-block; margin-left:5px; border-radius:100px; border:2px solid rgba(90,90,249,0.6); text-align:center; padding:5px 0px 5px 0px;' >"
+                    +x+"</p>";
 
                 console.log(x);
-            document.getElementById("friend_list").appendChild(obj.appendChild(x));
-            document.getElementById("friend_list2").value  +=  (x + '&');
+                document.getElementById("friend_list2").value  +=  (x + '&');
+            }
         }
         function del(){
             document.getElementById("friend_list").value = '';
