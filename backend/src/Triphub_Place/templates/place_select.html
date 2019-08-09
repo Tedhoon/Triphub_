@@ -1,47 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+{% extends 'base.html' %}
+{% load staticfiles %}
 
-
-
+{% block contents %}
 <style>
         
-        @import url('https://fonts.googleapis.com/css?family=Nanum+Pen+Script&display=swap');
-                
-        
-        body{
-            
-            font-family: 'Nanum Pen Script', cursive;
-            
-            background: rgba(201, 255, 191, 0.438);  /* fallback for old browsers */
-            background: -webkit-linear-gradient(to right, #FFAFBD, #C9FFBF);  /* Chrome 10-25, Safari 5.1-6 */
-            background: linear-gradient(to right, #FFAFBD, #C9FFBF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-            
-        }
-        section{
+        .card_section{
             background-color: rgba(230, 228, 228, 0.522);
             padding : 20px;
-            margin-left: 20%;
             margin-top : 2%;
             border-radius: 10px;
             float: left;
-
         }
-        
+        #trip_space{
+            margin-left:3%;
+            width:30%;
+        }
+    
         .card{
             text-align: center;
             font-weight: 500;
             width: 200px;
-            margin-bottom: 10px;
+            margin-bottom: 50px;
             padding :5px;
-            color: white;
+            color: #000;
             border-radius: 5px; 
-            box-shadow: 0px 2px 3px 2px rgba(95, 62, 62, 0.623);
-            background: linear-gradient(to left, #8E54E9, #4776E6);    
             margin-right:10px; 
         }
         .card:hover{ 
@@ -49,14 +31,15 @@
             transition: 0.1s ease-in;
         }
         select{
-            border-radius: 10px;
-            margin-left: 20%;
-            margin-top: 15px;
+            width: 80%;
+            border:none;
+            border-bottom:solid 2px #000;
+            background:#fff;
+            font-size:1.2em;
+            text-align: center;
+            padding:1%;
+        
         }
-        .card_section{
-            float: left;
-        }
-
 
         .button{
            
@@ -78,6 +61,7 @@
             background:#fff;
             color:black;
           }
+
           .button:before,.button:after{
             content:'';
             position:absolute;
@@ -85,7 +69,6 @@
             right:0;
             height:2px;
             width:0;
-            background: #1AAB8A;
             transition:400ms ease all;
           }
           .button:after{
@@ -98,122 +81,142 @@
             width:100%;
             transition:800ms ease all;
           }
-        
-          .next_button{
-            
-            position:absolute;
-            right: 20%;
-            top:15px;
-        }
-        
-        
-        .main_name{
+          .trip_space{
+            background-color:  rgba(230, 228, 228, 0.522);
+            padding : 15px 0 10px 25px;
+            margin: 10px 100px 20px 0;
+            border-radius: 10px;
+            width : 20%;
+            height: 400px;
+            float: left;
 
-            font-weight: 600;
-            font-size: 20px;
-            color: white;
-            position: absolute;
-            top: 15px;
-            left: 50%;
-    
-            }
-             
-    
-        *{
-        margin: 0;
-        padding: 0;
-        }
+          }
+          .card:active{
+            transform: scale(1.1,1.1);
 
-        .navbar{
-            height: 55px;
-            background: #4776E6;  /* fallback for old browsers */
-            background: -webkit-linear-gradient(to left, #8E54E9, #4776E6);  /* Chrome 10-25, Safari 5.1-6 */
-            background: linear-gradient(to left, #8E54E9, #4776E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-        }
-        .navbar-brand{
-        
-        text-decoration: none;
-        font-size: 20px;
-        color: white;
-        position: absolute;
-        top: 16px;
-        left: 60px;
-        }
+          }
+         #map{
+             width:45%;
+             height:540px;
+            float:left;
+             margin-left:3%;
+             border:1px solid #000;
+         }
+         #select{
+             width: 45%;
+             float:left;
+             margin-left:3%;
+         }
+         #city{
+             width:49%;
+         }
 </style>
+<script>
+   function allowDrop(ev){
+    //방법1
+    var digit = ev.target.id;
+    var num = parseInt(digit);
+
+
+
+        if ((digit != "trip_space") && (digit != "card_section")){
+            return;
+        }
+ 
+        else {
+            ev.preventDefault();
+        // console.log(digit);
+        }
+       
+   }
+   function drag(ev){
+       ev.dataTransfer.setData("text",ev.target.id);
+   }
+   function drop(ev){
+       ev.preventDefault();
+       var data = ev.dataTransfer.getData("text");
+       ev.target.appendChild(document.getElementById(data));
+   }
+
+   var id=0;
+   function test_id() {
+    
+       //document.getElementsByClassName("card").getAttribute('id')= "i";
+       document.getElementsByClassName("card").setAttribute('id' ,'hello');
+       
+    
+       };
+       
+   
+
+
+
+</script>
         
     
 </head>
 
 <body>
-
-<nav class="navbar">
-                                
     <form name="" action="{% url 'attraction' %}"  method="GET">
+    <section id="map">
 
+    </section> 
 
-        <select name="select_place" id = "select_value"> 
+    <section id="select">
+            <section id="city">
+                    <select name="select_place" id = "select_value"> 
+        
+                            <option value="">지역</option>
+                            <option value="서울">서울</option>
+                            <option value="경기">경기</option>
+                            <option value="인천">인천</option>
+                            <option value="강원">강원</option>
+                            <option value="충남">충남</option>
+                            <option value="충북">충북</option>
+                            <option value="대전">대전</option>
+                            <option value="경북">경북</option>
+                            <option value="대구">대구</option>
+                            <option value="전북">전북</option>
+                            <option value="전남">전남</option>
+                            <option value="광주">광주</option>
+                            <option value="경남">경남</option>
+                            <option value="울산">울산</option>
+                            <option value="부산">부산</option>
+                            <option value="제주">제주</option>
+                            
+                    </select>
+                <input type="submit" value="확인" class="button" >
+            </section>
+</form>
+              
 
-                <option value="">지역</option>
-                <option value="서울">서울</option>
-                <option value="경기">경기</option>
-                <option value="인천">인천</option>
-                <option value="강원">강원</option>
-                <option value="충남">충남</option>
-                <option value="충북">충북</option>
-                <option value="대전">대전</option>
-                <option value="경북">경북</option>
-                <option value="대구">대구</option>
-                <option value="전북">전북</option>
-                <option value="전남">전남</option>
-                <option value="광주">광주</option>
-                <option value="경남">경남</option>
-                <option value="울산">울산</option>
-                <option value="부산">부산</option>
-                <option value="제주">제주</option>
-                
-        </select>
-
-        <input type="submit" value="카드생성" class="button">
-
-    </form>
-    
-    <div class="main_name">{{value}}</div>
-
-            
-    <form action="{% url 'next_select_page'%}" method="GET" class ="next_button">
+<form action="{% url 'next_select_page'%}" method="GET" class ="next_button">
 
             <input type ="text" name = "hi" id = "hidden_div" style="display: none;" value="{{value}}">
             <input type ="submit" value="NEXT" class ="button">
     
     </form>
-                    
-</nav>
-
-
-                    
-
-
     
-<section>  
-        
-    <h2> 여행지 카드 </h2>
-    <br>
-    <br>
+      
 
 
-    <div class="card_section">
-        {%for k,v in attraction.items %}
-            <div class="card"> <h3> {{k}} </h3> <br> {{v}}</div>
+
+    <section class="card_section" id="card_section" ondrop="drop(event)" ondragover="allowDrop(event)" >  
+    
+        {%for k,v in attraction.items %}    
+            <div class="card" id="{{forloop.counter}}" draggable="true" ondragstart="drag(event)"><h3>{{k}}</h3> <br> {{v}}</div>
         {%endfor%}
-    </div>
 
-   
-
-</section>
-
-
+    </section>
+    
 
 
     
-</body>
-</html>
+
+
+
+    <section class='trip_space' id="trip_space" ondrop="drop(event)" ondragover="allowDrop(event)"></section>
+
+
+</section> 
+{% endblock contents %}
