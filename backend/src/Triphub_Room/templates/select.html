@@ -5,10 +5,10 @@
     <!-- <link rel="stylesheet" href="{% static 'css/create.css' %}"> -->
 
     <!-- body -->
-    <h1>Select Room</h1>
     <h1>{{roomname}}</h1>
     {{ room.room_id }}
     {{ room.name }}
+    {% include 'place_select.html'%}
     
     <a href="{% url 'Room_loading'%}">Room_loading</a>
 {% endblock contents %}
