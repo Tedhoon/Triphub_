@@ -12,16 +12,26 @@
 </head>
 <body>
     <div class="Nav">
+            
         <div class="Nav-logo">
-            <h1>Triphub</h1>
+            <p id="logo">
+                Triphub
+                <p style="width:100%; margin:0; float:left">
+                    {{username}}
+                </p>
+            </p>
+           
         </div>
         <div class="Nav-prof">
+                
             <a href="{% url 'main'%}">HOME</a>
         </div>
         <div class="Nav-login">
             <a href="{% url 'logout' %}">LOGOUT</a>
         </div>
+        
     </div>
+    
     {% block contents %}
     {% endblock %}
 </body>
